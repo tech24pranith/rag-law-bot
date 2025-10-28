@@ -1,0 +1,18 @@
+langchain
+langchain-core
+langchain-community
+pypdf
+pymupdf
+sentence-transformers
+faiss-cpu  #vector store
+chromadb   # vector store 
+
+streamlit
+python-dotenv  # load_dotenv
+google-genai
+google-generativeai
+
+
+
+
+
