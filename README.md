@@ -1,5 +1,5 @@
-#  🚀LawGPT
-##  Multilingual RAG-based Legal Assistant ( Traffic & RTI Laws )  
+#  LawGPT
+## 🚀Multilingual RAG-based Legal Assistant ( Traffic & RTI Laws )  
 
 ## 🎬Working 
 ------Video ----------
