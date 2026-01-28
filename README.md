@@ -1,9 +1,9 @@
-#  LawGPT
+#  🚀LawGPT
 ##  Multilingual RAG-based Legal Assistant ( Traffic & RTI Laws )  
 
-## 📌Working 
+## 🎬Working 
 ------Video ----------
-## 📌Tech Stack Used
+## 🛠️Tech Stack Used
 | Component          | Technology                                |
 | ------------------ | ----------------------------------------- |
 | UI                 | Streamlit                                 |
@@ -12,7 +12,7 @@
 | Vector DB          | ChromaDB                                  |
 | Logging            | CSV + Pandas                              |
 
-## 📌Features
+## ✨Features
 #### 1. Retrieval-Augmented Generation (RAG)
 
   *  Uses SentenceTransformers for embeddings
@@ -37,14 +37,14 @@
 #### 6. Multilingual Support
   * All responses are returned in the user’s original language
 
-## 📌How RAG Works in This Project
+## ✅How RAG Works in This Project
 1. User asks a question 
 2. Query is embedded using SentenceTransformers
 3. Relevant legal chunks are retrieved from ChromaDB
 4. Gemini generates an answer using: Retrieved context &  Conversation history
 5. Final response is returned to the user
 
-## 📌Admin Panel
+## 📊Admin Panel
 *  Accessible from the Streamlit sidebar
 *  Default password
 *  View recent user interactions
