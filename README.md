@@ -2,7 +2,12 @@
 ## 🚀Multilingual RAG-based Legal Assistant ( Traffic & RTI Laws )  
 
 ## 🎬Working 
-------Video ----------
+
+https://github.com/user-attachments/assets/5172f3c1-86a3-468c-a3d9-ea4acb6e1c21
+
+https://github.com/user-attachments/assets/b0270fd1-995d-4036-af45-bbcfc89f1c0d
+
+
 ## 🛠️Tech Stack Used
 | Component          | Technology                                |
 | ------------------ | ----------------------------------------- |
