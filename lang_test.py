@@ -8,8 +8,7 @@ import datetime
 import pandas as pd
 import csv 
 import warnings
-from langdetect import detect, LangDetectException # 🟢 NEW: For stable language detection
-
+from langdetect import detect, LangDetectException
 from langchain_core.documents import Document
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage 
@@ -28,10 +27,7 @@ ADMIN_PASSWORD = 'admin' # Global password
 # Load environment variables (assumes GEMINI_API_KEY is in a .env file)
 load_dotenv()
 
-# ==============================================================================
 # LOGGING AND CLEANUP FUNCTIONS
-# ==============================================================================
-
 def check_and_reset_log(file_path):
     """Deletes the log file if a corruption marker is present in st.session_state."""
     if 'log_reset_needed' in st.session_state and st.session_state.log_reset_needed:
@@ -68,10 +64,7 @@ def log_user_interaction(query: str, response: str, retriever_count: int):
     except Exception:
         pass 
 
-# ==============================================================================
-# 2. RAG Component Classes (Unchanged for brevity)
-# ==============================================================================
-
+# 2. RAG Component Classes 
 class EmbeddingManager:
     """Handles document embedding generation using Sentence Transformer"""
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
@@ -161,19 +154,9 @@ class RAGRetriever:
             st.error(f"Error during retrieval: {e}") 
             return []
 
-# ==============================================================================
-# 3. RAG Execution Function (Multilingual Enabled)
-# ==============================================================================
-
 def rag_simple(query: str, retriever: RAGRetriever, llm: ChatGoogleGenerativeAI, top_k: int = 3, history: List[Dict[str, str]] = None) -> str:
     """Performs RAG with In-Context Language Handling via the Gemini LLM."""
-    
-    # ----------------------------------------------------
-    # 🟢 MULTILINGUAL FEATURE IMPLEMENTATION
-    # ----------------------------------------------------
     original_lang_code = 'en'
-    
-    # 1. Detect Original Language (using langdetect)
     try:
         original_lang_code = detect(query)
     except LangDetectException:
@@ -218,11 +201,8 @@ def rag_simple(query: str, retriever: RAGRetriever, llm: ChatGoogleGenerativeAI,
         return response.content
     except Exception as e:
         return f"An error occurred with the LLM call: {e}"
-
-# ==============================================================================
+        
 # 4. Streamlit Initialization and Layout
-# ==============================================================================
-
 @st.cache_resource
 def setup_rag_components():
     """Initializes and caches the RAG components (LLM, Embeddings, Vector Store, Retriever)."""
@@ -298,8 +278,7 @@ if prompt := st.chat_input("Ask a question about Traffic or RTI law..."):
         retriever_count=st.session_state.retrieved_count
     )
 
-# ------------------------------------------------------------------------------
-## 💻 FEATURE 1: Admin Log Viewer with Password Protection
+#FEATURE 1: Admin Log Viewer with Password Protection
 # ------------------------------------------------------------------------------
 st.sidebar.markdown("---")
 with st.sidebar.expander("Admin Log Viewer (Usage) 📊"):
@@ -363,4 +342,5 @@ with st.sidebar.expander("Admin Log Viewer (Usage) 📊"):
                 st.session_state.log_reset_needed = True
                 st.exception(e)
         else:
+
             st.info("No log file found yet.")
